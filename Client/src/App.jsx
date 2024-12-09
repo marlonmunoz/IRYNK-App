@@ -1,35 +1,67 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import { useState, useEffect } from 'react';   
+import NavBar from './NavBar';
+import Header from './Header';
+import { Outlet } from 'react-router-dom'; 
+import { v4 as uuidv4 } from 'uuid';
+
+function App() {  
+  const [toys, setToys] = useState([]); 
+  const [searchText, setSearchText] = useState("");  
+  const [selectedAge, setSelectedAge] = useState("all");
+
+  useEffect(() => {             
+    fetch("http://localhost:5001/toys")  
+      .then(response => response.json())
+      .then(data => setToys(data)); 
+  }, []);
+
+  const filteredToysByAge = selectedAge === "all" ? toys : toys.filter(toy => toy.age === selectedAge);   
+  const filteredToys = filteredToysByAge.filter(toy => {
+  return toy.name.toUpperCase().includes(searchText.toUpperCase());
+  });
+  
+  function updateSearchText(event) {
+    setSearchText(event.target.value);
+  }
+  function deleteToy(toyId) {
+    setToys(toys.filter(toy => toy.id !== toyId));
+  }
+
+  function addNewToy(newToy) {
+    const tempToy = { ...newToy, id: uuidv4(), temp: true }; // Add a unique ID and temp flag
+    setToys([...toys, tempToy]); // Temporarily add the new toy to the state
+
+    const configObj = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(newToy)
+    };
+  
+    fetch("http://localhost:5001/toys", configObj)
+      .then(response => response.json())
+      .then(newToyData => {
+        setToys([...toys, newToyData]); // Add the new toy to the state
+      });
+  }
+
+  function handleAgeChange(event){
+    setSelectedAge(event.target.value)
+  }
+
+
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <NavBar />
+      <Header />
+      
+      <Outlet context={{toys: filteredToys, addNewToy: addNewToy, deleteToy: deleteToy, updateSearchText: updateSearchText, searchText: searchText, handleAgeChange: handleAgeChange, selectedAge: selectedAge}} /> 
+    </div>
+  );
 }
 
-export default App
+export default App;
