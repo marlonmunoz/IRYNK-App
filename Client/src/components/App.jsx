@@ -11,10 +11,11 @@ function App() {
   const [selectedAge, setSelectedAge] = useState("all");
 
   useEffect(() => {             
-    fetch("http://localhost:5001/toys")  
+    fetch(encodeURI("http://localhost:5001/toys"))  
       .then(response => response.json())
       .then(data => setToys(data)); 
   }, []);
+  
 
   const filteredToysByAge = selectedAge === "all" ? toys : toys.filter(toy => toy.age === selectedAge);   
   const filteredToys = filteredToysByAge.filter(toy => {
@@ -40,12 +41,13 @@ function App() {
       },
       body: JSON.stringify(newToy)
     };
-  
-    fetch("http://localhost:5001/toys", configObj)
+    const url = encodeURI("http://localhost:5001/toys")
+    fetch(url, configObj)
       .then(response => response.json())
       .then(newToyData => {
         setToys([...toys, newToyData]); // Add the new toy to the state
-      });
+      })
+      .catch(error => console.log('Error', error));
   }
 
   function handleAgeChange(event){
