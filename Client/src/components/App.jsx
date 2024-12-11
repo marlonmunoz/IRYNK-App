@@ -11,7 +11,7 @@ function App() {
   const [selectedAge, setSelectedAge] = useState("all");
 
   useEffect(() => {             
-    fetch(encodeURI("http://localhost:5001/toys"))  
+    fetch("http://localhost:5001/toys")  
       .then(response => response.json())
       .then(data => setToys(data)); 
   }, []);
@@ -41,8 +41,7 @@ function App() {
       },
       body: JSON.stringify(newToy)
     };
-    const url = encodeURI("http://localhost:5001/toys")
-    fetch(url, configObj)
+    fetch("http://localhost:5001/toys", configObj)
       .then(response => response.json())
       .then(newToyData => {
         setToys([...toys, newToyData]); // Add the new toy to the state

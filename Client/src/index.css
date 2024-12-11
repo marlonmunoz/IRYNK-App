@@ -1,68 +1,254 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+body {
+  background-image: url('/images/tropical.png');
+  background-color: black;
+  color: white; 
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
-a:hover {
-  color: #535bf2;
+
+
+/* ---------------------------------------------------------------------------------- */
+/* ------ HOME & NAV-TAB ------------------------------------------------------------*/
+/* ---------------------------------------------------------------------------------- */
+
+.my-tabs {
+  display: inline-block;
+  margin: 10px;
+}
+
+.ul-nav {
+  padding: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.my-tabs a {
+  color: white; /* Default text color */
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 900;
+  background-color: royalblue;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+
+.my-tabs a:hover {
+  background-color: rgb(132, 45, 213);
+  box-shadow: 0 0 30px rgba(55, 233, 27, 0.5);
+}
+
+/* ---------------------------------------------------------------------------------- */
+
+
+#search {
+
+  font-size: 13px;
+  border-radius: 10px;
+  height: 20px;
+  width: 200px;
+}
+
+.search-by-age {
+  font-size: 13px;
+  border-radius: 10px;
+  height: 24px;
+  width: 200px;
 }
 
 body {
-  margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: center; 
+  align-items: center; 
+  padding: 0% 30%;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.toy:hover {
+  box-shadow: 0 0 30px rgba(55, 233, 27, 0.5);
 }
 
-button {
+.toy-image {
+  width: 500px; 
+  height: auto; 
+}
+
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.toy {
+  position: relative;
+  display: inline-block;
+  flex-direction:row-reverse;
+  align-items: left;
+  border: 1px solid white;
+  border-radius: 10px;
+  margin: 30px 0px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.toy > div {
+  background-color: rgba(64, 17, 41, 0.5);
+  border: 1px solid white;
+  border-radius: 7px;
+  padding: 0px 10px 15px;
+  width: 500px; /* Set a fixed width */
+  height: 350px;  /* Set a fixed height */
+}  
+
+.delete-button {
+
+  padding: 4px 40px;
+  border-radius: 7px;
+  background-color: rgb(192, 61, 61);
+  color: white  ;
+}
+
+.liked-button {
+
+  padding: 4px 40px;
+  border-radius: 7px;
+  background-color: royalblue;
+  color: white  ;
+}
+
+
+.my-buttons {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  gap: 18px;
+  margin: 10px;
+}
+
+#toy-price {
+  color: rgb(187, 255, 85);
+  font-weight: bold;
+}
+
+
+
+/* ---------------------------------------------------------------------------------- */
+/* ------ ADD NEW TOY TAB FORM -------------------------------------------------------*/
+/* ---------------------------------------------------------------------------------- */
+
+#name,
+#image,
+#age,
+#price,
+#description {
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+
+.form-container {
+  position: relative; 
+  display: inline-block; 
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  border: 1px solid white;
+  padding: 80px;
+  border-radius: 8px;
+  overflow: hidden; 
+  z-index: 1;
+  width: 350px; /* Set a fixed width */
+  height: 700px; /* Set a fixed height */
 }
+
+.form-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://st2.depositphotos.com/2538523/6871/v/950/depositphotos_68715711-stock-illustration-colorful-kids-on-the-notebook.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  z-index: -1; 
+  border-radius: 8px;
+}
+
+.my-inputs {
+  width: 90%; 
+  padding: 10px;
+  margin: 10px 0; 
+  box-sizing: border-box; 
+  border-radius: 4px; 
+  border: 1px solid #ccc;
+}
+
+#description {
+  text-align: center;
+  font-size: 17px;
+  border: 1px solid white;
+  padding: 20px;
+
+}
+
+/* BUTTON  */
+.add-to-list {
+
+  padding: 4px 40px;
+  border-radius: 7px;
+  background-color: rgb(55, 216, 82);
+  color: black;
+}
+
+.form-container:hover {
+  box-shadow: 0 0 30px rgba(55, 233, 27, 0.5);
+}
+
+
+/* ---------------------------------------------------------------------------------- */
+/* ------ MISSION TAB ----------------------------------------------------------------*/
+/* ---------------------------------------------------------------------------------- */
+
+.sub-header {
+  color: rgb(127, 229, 149);
+}
+
+#mission {
+  font-size: 1.5em;
+  margin: 10px;
+  border: 1px solid white;
+  border-radius: 7px;
+  padding: 50px;
+  margin: 20px 200px;
+  background-color: rgba(54, 34, 74, 0.5);
+  width: 400px; /* Set a fixed width */
+  height: 150px;  /* Set a fixed height */
+}
+
+
+/* ---------------------------------------------------------------------------------- */
+/* ------ ERROR PAGE ----------------------------------------------------------------*/
+/* ---------------------------------------------------------------------------------- */
+
+
+#error-gif {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150%;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 100%40%;
+  opacity: 0.5;
+}
+
