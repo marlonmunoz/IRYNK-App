@@ -1,7 +1,7 @@
 # IRYNK-App 🍼
-<!-- Toys_R_App -->
+## Toys For Child Development
+
 ![Alt text](./Client/public/images/IRYNK-App.png)
-## Toys For Child Brain Development
 
 As a first time, our newborn angel did not include instructions when they made their way into the world, and we have a duty to guide our little angels and help them develop their skills as they grow. This app was created to help parents witht a head start and help them choose the right toy according to age and /or category. As a first time parent of a beautiful baby girl, I think it is necessary to know what toys will help them have fun and most importantly, develop their brain as they aquire new skills..
 # SETUP
