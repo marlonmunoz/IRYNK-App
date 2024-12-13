@@ -50,6 +50,20 @@ code {
   box-shadow: 0 0 30px rgba(55, 233, 27, 0.5);
 }
 
+span {
+  font-weight: 900;
+  color: rgb(195, 250, 30);
+  /* text-decoration: underline; */
+
+}
+
+#category_id {
+  border: 1px solid white;
+  background-color: rgba(222, 0, 242, 0.5);
+  padding: 10px;
+  border-radius: 10px;
+}
+
 /* ---------------------------------------------------------------------------------- */
 
 
@@ -106,8 +120,8 @@ body {
   border: 1px solid white;
   border-radius: 7px;
   padding: 0px 10px 15px;
-  width: 500px; /* Set a fixed width */
-  height: 380px;  /* Set a fixed height */
+  width: 550px; /* Set a fixed width */
+  height: 400px;  /* Set a fixed height */
 }  
 
 .delete-button {
@@ -157,6 +171,9 @@ body {
   border-radius: 8px;
 }
 
+#description {
+  background-color: rgba(0, 0, 0, 0.5);
+}
 
 .form-container {
   position: relative; 
