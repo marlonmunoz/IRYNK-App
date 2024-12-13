@@ -16,6 +16,12 @@ code {
     monospace;
 }
 
+select {
+  appearance: none;
+  text-align: center;
+  border-radius: 10px;
+  padding: 2px;
+}
 
 /* ---------------------------------------------------------------------------------- */
 /* ------ HOME & NAV-TAB ------------------------------------------------------------*/
@@ -62,6 +68,29 @@ span {
   background-color: rgba(222, 0, 242, 0.5);
   padding: 10px;
   border-radius: 10px;
+}
+
+#my_bars {
+  display: block;
+  border-radius: 10px;
+  
+}
+
+#s_bar {
+  border-radius: 15px;
+  text-align: center;
+}
+
+.age_dropdown {
+  appearance: none;
+  font-size: 17px;
+  /* padding: 5px; */
+}
+
+.search-bars {
+  width: 200px;
+  padding: 5px;
+  font-size: 12px;
 }
 
 /* ---------------------------------------------------------------------------------- */

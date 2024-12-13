@@ -9,6 +9,7 @@ import Toy from './Toy';
 function App() {  
   const [searchText, setSearchText] = useState("");  
   const [selectedAge, setSelectedAge] = useState("all");
+  const [selectedCategory, setSelectedCategory] = useState("all")
   const [toys, setToys] = useState([]); 
   
   useEffect(() => {             
@@ -26,9 +27,9 @@ function App() {
   }, []);
   
   const filteredToysByAge = selectedAge === "all" ? toys : toys.filter(toy => toy.age === selectedAge);   
-  const filteredToys = filteredToysByAge.filter(toy => {
-  return toy.name.toUpperCase().includes(searchText.toUpperCase());
-
+  const filteredToysByCategory = selectedCategory === "all" ? filteredToysByAge : filteredToysByAge.filter(toy => toy.category === selectedCategory);
+  const filteredToys = filteredToysByCategory.filter(toy => {
+    return toy.name.toUpperCase().includes(searchText.toUpperCase());
   });
   
   function updateSearchText(event) {
@@ -62,44 +63,46 @@ function App() {
     setSelectedAge(event.target.value)
   }
 
+  function handleCategoryChange(event) {
+    setSelectedCategory(event.target.value)
+  }
+
+
   return (
     <div className="App">
-      {/* <NavBar />
-      <Header />
-      <label><strong> SEARCH: </strong></label>
-      <input type="text" value={searchText} onChange={e => setSearchText(e.target.value)} placeholder="By Name ..." />
-      <input type="text" value={selectedAge} onChange={e => setSearchText(e.target.value)} placeholder="By Age ..." />
-      <ul>
-        {filteredToys.map(toy => {
-          // Validate toy properties
-          if (!toy.id || !toy.name || !toy.age) {
-            console.error('Toy is missing required properties:', toy);
-            return null;
-          }
-          return (
-            <li key={toy.id}>
-              <Toy toy={toy} deleteToy={() => deleteToy(toy.id)} />
-            </li>
-          );
-        })}
-      </ul> */}
       <NavBar />
       <Header />
-      <label><strong> SEARCH: </strong></label>
-      <input type="text" value={searchText} onChange={updateSearchText} placeholder="By Name ..." />
-      <label><strong> SEARCH: </strong></label>
-      <select value={selectedAge} onChange={handleAgeChange}>
+      <label id="my_bars"><strong> NAME: </strong></label>
+      <input className="search-bars" id='s_bar' type="text" value={searchText} onChange={updateSearchText} placeholder="By Name ..." />
+
+      <label id="my_bars"><strong> AGE: </strong></label>
+      <select className="search-bars" value={selectedAge} onChange={handleAgeChange}>
         <option value="all">All Ages By Month</option>
-        <option value="0-2 months">0-2</option>
-        <option value="3-4 months">3-4</option>
-        <option value="5-6 months">5-6</option>
-        <option value="7-8 months">7-8</option>
-        <option value="9-10 months">9-10</option>
-        <option value="11-12 months">11-12</option>
-        <option value="13-15 months">13-15</option>
-        <option value="16-18 months">16-18</option>
-        <option value="19-21 months">19-21</option>
-        <option value="22-24 months">22-24</option>
+        <option value="0-2 months">0-2 months</option>
+        <option value="3-4 months">3-4 months</option>
+        <option value="5-6 months">5-6 months</option>
+        <option value="7-8 months">7-8 months</option>
+        <option value="9-10 months">9-10 months</option>
+        <option value="11-12 months">11-12 months</option>
+        <option value="13-15 months">13-15 months</option>
+        <option value="16-18 months">16-18 months</option>
+        <option value="19-21 months">19-21 months</option>
+        <option value="22-24 months">22-24 months</option>
+      </select>
+
+      <label id="my_bars"><strong> CATEGORY: </strong></label>
+      <select className="search-bars" value={selectedCategory} onChange={handleCategoryChange}>
+        <option value="all">All Categories</option>
+        <option value="Sensory">Sensory</option>
+        <option value="Social + Emotional">Social + Emotional</option>
+        <option value="Sensory Exploration + Motor Skills">Sensory Exploration + Motor Skills</option>
+        <option value="Cognitive Development + Problem Solving Skills">Cognitive Development + Problem Solving Skills</option>
+        <option value="Motor Skills: Gross + Fine">Motor Skills: Gross + Fine</option>
+        <option value="Cognitive Development">Cognitive Development</option>
+        <option value="Cognitive + Physical">Cognitive + Physical</option>
+        <option value="Cognitive + Emotion">Cognitive + Emotion</option>
+        <option value="Sensory + Cognitive">Sensory + Cognitive</option>
+        <option value="Cognitive + Emotional + Motor Dev.">Cognitive + Emotional + Motor Dev.</option>
       </select>
       <ul>
         {filteredToys.map(toy => {
