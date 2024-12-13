@@ -64,11 +64,43 @@ function App() {
 
   return (
     <div className="App">
+      {/* <NavBar />
+      <Header />
+      <label><strong> SEARCH: </strong></label>
+      <input type="text" value={searchText} onChange={e => setSearchText(e.target.value)} placeholder="By Name ..." />
+      <input type="text" value={selectedAge} onChange={e => setSearchText(e.target.value)} placeholder="By Age ..." />
+      <ul>
+        {filteredToys.map(toy => {
+          // Validate toy properties
+          if (!toy.id || !toy.name || !toy.age) {
+            console.error('Toy is missing required properties:', toy);
+            return null;
+          }
+          return (
+            <li key={toy.id}>
+              <Toy toy={toy} deleteToy={() => deleteToy(toy.id)} />
+            </li>
+          );
+        })}
+      </ul> */}
       <NavBar />
       <Header />
       <label><strong> SEARCH: </strong></label>
-      {/* <input type="text" value={searchText} onChange={updateSearchText} placeholder="Search toys..." /> */}
-      <input type="text" value={searchText} onChange={e => setSearchText(e.target.value)} placeholder="Search toys..." />
+      <input type="text" value={searchText} onChange={updateSearchText} placeholder="By Name ..." />
+      <label><strong> SEARCH: </strong></label>
+      <select value={selectedAge} onChange={handleAgeChange}>
+        <option value="all">All Ages By Month</option>
+        <option value="0-2 months">0-2</option>
+        <option value="3-4 months">3-4</option>
+        <option value="5-6 months">5-6</option>
+        <option value="7-8 months">7-8</option>
+        <option value="9-10 months">9-10</option>
+        <option value="11-12 months">11-12</option>
+        <option value="13-15 months">13-15</option>
+        <option value="16-18 months">16-18</option>
+        <option value="19-21 months">19-21</option>
+        <option value="22-24 months">22-24</option>
+      </select>
       <ul>
         {filteredToys.map(toy => {
           // Validate toy properties
