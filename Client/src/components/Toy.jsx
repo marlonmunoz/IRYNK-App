@@ -12,6 +12,7 @@ function Toy({ toy, deleteToy }) {
               <p id="description">{toy.description}</p>
               <p id="toy-price">$ {toy.price}</p>
               <h3>Ages: {toy.age}</h3>
+              <p id="category_id"> {toy.category}</p>
 
               <div className="my-buttons">
                 <button className="delete-button" onClick={deleteToy}>🗑️ Delete Toy</button>

@@ -107,7 +107,7 @@ body {
   border-radius: 7px;
   padding: 0px 10px 15px;
   width: 500px; /* Set a fixed width */
-  height: 350px;  /* Set a fixed height */
+  height: 380px;  /* Set a fixed height */
 }  
 
 .delete-button {
@@ -140,6 +140,9 @@ body {
   font-weight: bold;
 }
 
+.sub-header {
+  font-size: 29px;
+}
 
 
 /* ---------------------------------------------------------------------------------- */

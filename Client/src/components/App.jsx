@@ -1,44 +1,35 @@
 
 import { useState, useEffect } from 'react';   
-import NavBar from './NavBar';
-import Header from './Header';
 import { Outlet } from 'react-router-dom'; 
 import { v4 as uuidv4 } from 'uuid';
-import SearchBar from './SearchBar';
+import NavBar from './NavBar'
+import Header from './Header';
 import Toy from './Toy';
 
 function App() {  
-  const [toys, setToys] = useState([]); 
   const [searchText, setSearchText] = useState("");  
   const [selectedAge, setSelectedAge] = useState("all");
-  const filteredToysByAge = selectedAge === "all" ? toys : toys.filter(toy => toy.age === selectedAge);   
-
-  // useEffect(() => {             
-  //   fetch("http://localhost:5001/toys")  
-  //     .then(response => response.json())
-  //     .then(data => setToys(data)); 
-  // }, []);
-
+  const [toys, setToys] = useState([]); 
+  
   useEffect(() => {             
     fetch("http://localhost:5001/toys")  
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        // console.log('Fetched toys:', data);
-        setToys(data);
-      })
-      .catch(error => console.error('Error fetching toys:', error)); 
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      setToys(data);
+    })
+    .catch(error => console.error('Error fetching toys:', error)); 
   }, []);
   
+  const filteredToysByAge = selectedAge === "all" ? toys : toys.filter(toy => toy.age === selectedAge);   
   const filteredToys = filteredToysByAge.filter(toy => {
   return toy.name.toUpperCase().includes(searchText.toUpperCase());
 
   });
-  // console.log('Filtered toys:', filteredToys);
   
   function updateSearchText(event) {
     setSearchText(event.target.value);
@@ -71,14 +62,13 @@ function App() {
     setSelectedAge(event.target.value)
   }
 
-
-
   return (
     <div className="App">
       <NavBar />
       <Header />
       <label><strong> SEARCH: </strong></label>
-      <input type="text" value={searchText} onChange={updateSearchText} placeholder="Search toys..." />
+      {/* <input type="text" value={searchText} onChange={updateSearchText} placeholder="Search toys..." /> */}
+      <input type="text" value={searchText} onChange={e => setSearchText(e.target.value)} placeholder="Search toys..." />
       <ul>
         {filteredToys.map(toy => {
           // Validate toy properties

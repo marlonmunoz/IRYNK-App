@@ -52,7 +52,7 @@
         "age": "11-12 months",
         "price": 80,
         "description": "Your baby is starting to put it all together and understand concepts at a deeper level. This Play Kit encourages your baby to define and organize information while engaging their budding imagination.",
-        "category_id": "Cognitive Development"
+        "category": "Cognitive Development"
       },
       {
         "id": "7",

@@ -7,7 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './components/ErrorPage';
 import ToyList from './components/ToyList';
 import NewToyForm from './components/NewToyForm';
-import About from './components/About'
+import About from './components/About';
 
 
 const router = createBrowserRouter([
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
         element: <ToyList />
       },
       {
-        path: '/add_toy',
+        path: '/add_new_toy',
         element: <NewToyForm />
       },
       {

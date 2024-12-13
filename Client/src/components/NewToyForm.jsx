@@ -1,5 +1,5 @@
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
  function NewToyForm() {
      const [formData, setFormData] = useState({
@@ -21,10 +21,39 @@ import { useState } from "react";
         });
     };
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     fetch('http://localhost:5001/toys', {
-    //         method: 'POST',
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('Submitting form data:', formData);
+    
+        fetch('http://localhost:5001/toys', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        })
+        .then(response => {
+          console.log('Response status:', response.status);
+          return response.json().then(data => ({ status: response.status, body: data }));
+        })
+        .then(({ status, body }) => {
+          console.log('Response body:', body);
+          if (status === 200 || status === 201) {
+            console.log('Success:', body);
+            navigate('/home');
+          } else {
+            console.error('Failed to add toy:', body);
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+      };
+
+    // const handlePatch = (id) => {
+    //     fetch(`http://localhost:5001/toys/${id}`, {
+    //         method: 'PATCH',
     //         headers: {
     //             'Content-Type': 'application/json'
     //         },
@@ -33,61 +62,13 @@ import { useState } from "react";
     //     .then(response => response.json())
     //     .then(data => {
     //         console.log('Success:', data);
-    //         navigate('/home');
+    //         navigate ('/home');
     //     })
     //     .catch((error) => {
     //         console.error('Error:', error);
     //     });
 
     // };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Submitting form data:', formData); // Log form data
-    
-        fetch('http://localhost:5001/toys', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        })
-        .then(response => {
-            console.log('Response status:', response.status); // Log response status
-            return response.json().then(data => ({ status: response.status, body: data }));
-        })
-        .then(({ status, body }) => {
-            console.log('Response body:', body); // Log response body
-            if (status === 200 || status === 201) {
-                console.log('Success:', body);
-                navigate('/home');
-            } else {
-                console.error('Failed to add toy:', body);
-            }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-    };
-
-    const handlePatch = (id) => {
-        fetch(`http://localhost:5001/toys/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-            navigate ('/home');
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-
-    };
 
     return (
         <div className="form-container">
@@ -177,16 +158,16 @@ import { useState } from "react";
 
                 {/*CATEGORY*/}
                 <div className="form-group"> 
-                    <label htmlFor="category_id"> Category ID:
-                    <select 
+                    <label htmlFor="category_id"> Category:</label>
+                    <input 
                         className="my-inputs"
                         type="text"
                         id="category_id" 
                         name="category_id" 
                         value= {formData.category_id} 
                         onChange={updateForm} 
-                    >
-                            <option value="">ADD CATEGORY</option>
+                    />
+                            {/* <option value="">ADD CATEGORY</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -195,9 +176,9 @@ import { useState } from "react";
                             <option valie="6">6</option>
                             <option value="7">7</option>
                             <option value="8">8</option>
-                            <option value="9">9</option>
-                    </select>
-                    </label>
+                            <option value="9">9</option> */}
+                    {/* </select> */}
+                    
                 </div>
                 <button className="add-to-list" type="submit">Add To List</button>
                 {/* <button className="add-to-list" type="submit" onClick={() => handlePatch(1)}>Update Toy</button> Example button to trigger PATCH */}
