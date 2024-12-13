@@ -2,7 +2,7 @@ body {
   background-image: url('/images/tropical.png');
   background-color: black;
   color: white; 
-  margin: 0;
+  margin: 100px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -158,7 +158,7 @@ body {
   border: 1px solid white;
   border-radius: 7px;
   padding: 0px 10px 15px;
-  width: 700px; /* Set a fixed width */
+  width: 670px; /* Set a fixed width */
   height: 400px;  /* Set a fixed height */
 }  
 
