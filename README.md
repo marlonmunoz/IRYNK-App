@@ -14,6 +14,8 @@ To activate the Frontend, run the following commands:
     - `cd Client`
     - `npm run server`
 2. Add a new terminal window and run this command to open the project in the browser
+    - `nvm install`
+    - `nvm use 20.16`
     - `npm run dev`
 
 ## SERVER - Python-FLASK (Backend Activation)
