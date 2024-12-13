@@ -4,12 +4,14 @@ import NavBar from './NavBar';
 import Header from './Header';
 import { Outlet } from 'react-router-dom'; 
 import { v4 as uuidv4 } from 'uuid';
+import SearchBar from './SearchBar';
 import Toy from './Toy';
 
 function App() {  
   const [toys, setToys] = useState([]); 
   const [searchText, setSearchText] = useState("");  
   const [selectedAge, setSelectedAge] = useState("all");
+  const filteredToysByAge = selectedAge === "all" ? toys : toys.filter(toy => toy.age === selectedAge);   
 
   // useEffect(() => {             
   //   fetch("http://localhost:5001/toys")  
@@ -26,18 +28,17 @@ function App() {
         return response.json();
       })
       .then(data => {
-        console.log('Fetched toys:', data);
+        // console.log('Fetched toys:', data);
         setToys(data);
       })
       .catch(error => console.error('Error fetching toys:', error)); 
   }, []);
   
-
-  const filteredToysByAge = selectedAge === "all" ? toys : toys.filter(toy => toy.age === selectedAge);   
   const filteredToys = filteredToysByAge.filter(toy => {
   return toy.name.toUpperCase().includes(searchText.toUpperCase());
+
   });
-  console.log('Filtered toys:', filteredToys);
+  // console.log('Filtered toys:', filteredToys);
   
   function updateSearchText(event) {
     setSearchText(event.target.value);
@@ -76,6 +77,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Header />
+      <label><strong> SEARCH: </strong></label>
       <input type="text" value={searchText} onChange={updateSearchText} placeholder="Search toys..." />
       <ul>
         {filteredToys.map(toy => {
@@ -92,6 +94,7 @@ function App() {
         })}
       </ul>
       <Outlet context={{toys: filteredToys, addNewToy: addNewToy, deleteToy: deleteToy, updateSearchText: updateSearchText, searchText: searchText, handleAgeChange: handleAgeChange, selectedAge: selectedAge}} /> 
+      
     </div>
   );
 }

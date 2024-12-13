@@ -1,6 +1,8 @@
 # TOYS R APP
 ## Toys For Child Brain Development
 
+As a first time 
+
 This app helps parents choose the right toy according to age and /or category. It is a tool for first time parents and experienced parents who want to contribute and make an impact in their child development journey. As a first time parent of a beautiful baby girl, I think it is necessary to know what toys can added as your bundle of joy keeps growing.
 
 # SETUP
@@ -10,10 +12,10 @@ Below is the set up commands in order to run the fullstack App. Add commands in 
 
 To activate the Frontend, run the following commands:
 1. Run json server in your terminal:
-    - `cd Client/src`
+    - `cd Client`
     - `npm run server`
 2. Add a new terminal window and run this command to open the project in the browser
-    - `npm start`
+    - `npm run dev`
 
 ## SERVER - Python-FLASK (Backend Activation)
 

@@ -5,9 +5,9 @@ import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './components/ErrorPage';
-import NewToyForm from './components/NewToyForm';
 import ToyList from './components/ToyList';
-import About from './components/About';
+import NewToyForm from './components/NewToyForm';
+import About from './components/About'
 
 
 const router = createBrowserRouter([
