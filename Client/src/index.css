@@ -164,18 +164,20 @@ body {
 
 .delete-button {
 
-  padding: 4px 40px;
+  padding: 10px 40px;
   border-radius: 7px;
   background-color: rgb(192, 61, 61);
   color: white  ;
+  font-size: 16px;
 }
 
 .liked-button {
 
-  padding: 4px 40px;
+  padding: 10px 40px;
   border-radius: 7px;
   background-color: royalblue;
-  color: white  ;
+  color: white;
+  font-size: 16px;
 }
 
 
@@ -190,6 +192,7 @@ body {
 #toy-price {
   color: rgb(187, 255, 85);
   font-weight: bold;
+  font-size: 20px;
 }
 
 
