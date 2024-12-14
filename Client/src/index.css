@@ -180,13 +180,22 @@ body {
   font-size: 16px;
 }
 
-.liked-button {
+.delete-button:hover {
+  background-color: rgb(255, 0, 0);
+  box-shadow: 0 0 30px rgba(55, 233, 27, 0.5);
+}
 
+.liked-button {
   padding: 10px 40px;
   border-radius: 7px;
   background-color: royalblue;
   color: white;
   font-size: 16px;
+}
+
+.liked-button:hover {
+  background-color: rgb(29, 42, 222);
+  box-shadow: 0 0 30px rgba(55, 233, 27, 0.5);
 }
 
 
