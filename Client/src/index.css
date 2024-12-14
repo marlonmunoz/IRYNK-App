@@ -2,7 +2,7 @@ body {
   background-image: url('/images/tropical.png');
   background-color: black;
   color: white; 
-  margin: 50px;
+  margin: 80px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -28,6 +28,11 @@ select {
 /* ---------------------------------------------------------------------------------- */
 /* ------ HOME & NAV-TAB ------------------------------------------------------------*/
 /* ---------------------------------------------------------------------------------- */
+.flex_container {
+  display: flex;
+  justify-content:space-around
+}
+
 
 .my-tabs {
   display: inline-block;
@@ -37,12 +42,12 @@ select {
 .ul-nav {
   padding: 15px;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto; 
+ 
 }
 
-
-.my-tabs a {
-  color: white; /* Default text color */
+ .my-tabs > a {
+  color: white;
   text-decoration: none;
   font-size: 20px;
   font-weight: 900;
@@ -50,7 +55,7 @@ select {
   border: 1px solid white;
   border-radius: 10px;
   padding: 20px;
-}
+} 
 
 
 .my-tabs a:hover {
@@ -224,7 +229,7 @@ body {
   border-radius: 8px;
   overflow: hidden; 
   z-index: 1;
-  width: 350px; /* Set a fixed width */
+  width: 600px; /* Set a fixed width */
   height: 700px; /* Set a fixed height */
 }
 
@@ -316,5 +321,20 @@ body {
   margin: 0 auto;
   border-radius: 100%40%;
   opacity: 0.5;
+}
+
+
+.contactCard {
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 650px;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#email {
+  width:200px;
+  border-radius: 10px;
+  padding: 5px;
 }
 
