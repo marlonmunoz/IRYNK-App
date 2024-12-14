@@ -211,13 +211,25 @@ body {
 #image,
 #age,
 #price,
-#description {
+#description,
+#category_id {
   border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 17px;
 }
 
-#description {
-  background-color: rgba(0, 0, 0, 0.5);
+label {
+  color: black;
+  font-weight: 700;
 }
+
+.h3Form {
+  color: black;
+  font-weight: 900;
+}
+
+
 
 .form-container {
   position: relative; 
@@ -243,7 +255,7 @@ body {
   background-image: url("https://st2.depositphotos.com/2538523/6871/v/950/depositphotos_68715711-stock-illustration-colorful-kids-on-the-notebook.jpg");
   background-size: cover;
   background-position: center;
-  opacity: 0.3;
+  opacity: 0.7;
   z-index: -1; 
   border-radius: 8px;
 }

@@ -75,7 +75,7 @@ function NewToyForm() {
             <p>Add Your Recommended Toys To Our Database Here</p>
             <div className="form-container">
                 <form onSubmit={handleSubmit}>   
-                    <h3> Your Toy Recommendations 🧸 :</h3>
+                    <h3 className="h3Form"> Your Toy Recommendations 🧸 :</h3>
 
                     {/* NAME */}
                     <div className="form-group">
@@ -86,7 +86,8 @@ function NewToyForm() {
                             id="name" 
                             name="name" 
                             value= {formData.name} 
-                            onChange={updateForm} 
+                            onChange={updateForm}
+                            autoComplete="on" 
                         />
                     </div>
 
@@ -101,6 +102,7 @@ function NewToyForm() {
                             name="image" 
                             value= {formData.image} 
                             onChange={updateForm} 
+                            autoComplete="on" 
                         />
                     </div>
 
@@ -141,6 +143,7 @@ function NewToyForm() {
                             name="price" 
                             value= {formData.price} 
                             onChange={updateForm} 
+                            autoComplete="on" 
                         />
                     </div>
 
@@ -154,32 +157,39 @@ function NewToyForm() {
                             id="description" 
                             name="description" 
                             value= {formData.description} 
-                            onChange={updateForm} />
+                            onChange={updateForm}
+                            autoComplete="on" 
+                            
+                        />
+                            
                         </label>
                     </div>
 
                     {/*CATEGORY*/}
                     <div className="form-group"> 
                         <label htmlFor="category_id"> Category:</label>
-                        <input 
+                        <select 
                             className="my-inputs"
                             type="text"
                             id="category_id" 
                             name="category_id" 
                             value= {formData.category_id} 
                             onChange={updateForm} 
-                        />
-                                {/* <option value="">ADD CATEGORY</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option valie="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option> */}
-                        {/* </select> */}
+                            
+                        >
+                        
+                                <option value="">ADD CATEGORY</option>
+                                <option value="Sensory">Sensory</option>
+                                <option value="Social + Emotional">Social + Emotional</option>
+                                <option value="Sensory Exploration + Motor Skills">Sensory Exploration + Motor Skills</option>
+                                <option value="Cognitive Development + Problem Solving Skills">Cognitive Development + Problem Solving Skills</option>
+                                <option value="Motor Skills: Gross + Fine">Motor Skills: Gross + Fine</option>
+                                <option value="Cognitive Development">Cognitive Development</option>
+                                <option value="Cognitive + Physical">Cognitive + Physical</option>
+                                <option value="Cognitive + Emotion">Cognitive + Emotion</option>
+                                <option value="Sensory + Cognitive">Sensory + Cognitive</option>
+                                <option value="Cognitive + Emotional + Motor Dev.">Cognitive + Emotional + Motor Dev.</option>
+                        </select>
                                 
                     </div>
                     <button className="add-to-list" type="submit">Add To List</button>
