@@ -8,7 +8,7 @@ import ErrorPage from './components/ErrorPage';
 import ToyList from './components/ToyList';
 import NewToyForm from './components/NewToyForm';
 import About from './components/About';
-import Contact from './Contact';
+import Contact from './components/Contact';
 
 const router = createBrowserRouter([
   {
