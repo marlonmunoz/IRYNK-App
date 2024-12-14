@@ -8,7 +8,7 @@ import ErrorPage from './components/ErrorPage';
 import ToyList from './components/ToyList';
 import NewToyForm from './components/NewToyForm';
 import About from './components/About';
-
+import Contact from './Contact';
 
 const router = createBrowserRouter([
   {
@@ -26,7 +26,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/mission',
-        element: <About />,
+        element: <About />
+      },
+      {
+        path: '/contact',
+        element: <Contact />
       }
     ]
   }

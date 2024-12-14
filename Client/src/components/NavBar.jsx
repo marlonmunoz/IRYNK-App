@@ -9,6 +9,10 @@ function NavBar () {
                 <li className="my-tabs"><Link to="/add_new_toy" >Add New Toy</Link></li>
 
                 <li className="my-tabs"><Link to="/mission" >Mission</Link></li> 
+
+                <li className="my-tabs"><Link to="/contact" >Contact</Link></li> 
+
+
             </ul>
         </nav>
     )

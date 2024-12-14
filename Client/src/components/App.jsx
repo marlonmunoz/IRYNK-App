@@ -72,6 +72,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Header />
+      
       <label id="my_bars"><strong> SEARCH: </strong></label>
       <br />
       <input className="search-bars" id='s_bar' type="text" value={searchText} onChange={updateSearchText} placeholder="By Name ..." />
