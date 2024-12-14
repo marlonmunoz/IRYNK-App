@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { BrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './components/ErrorPage';
 import ToyList from './components/ToyList';
 import NewToyForm from './components/NewToyForm';
 import About from './components/About';
 import Contact from './components/Contact';
 
-const router = createBrowserRouter([
+const router = BrowserRouter([
   {
     path: '/',
     element: <App />,

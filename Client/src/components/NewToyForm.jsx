@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
- function NewToyForm() {
+function NewToyForm() {
      const [formData, setFormData] = useState({
          name: '',
          image: '',

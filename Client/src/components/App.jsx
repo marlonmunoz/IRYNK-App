@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';   
 import { Outlet } from 'react-router-dom'; 
 import { v4 as uuidv4 } from 'uuid';
-import NavBar from './NavBar'
+import NavBar from './NavBar';
 import Header from './Header';
 import Toy from './Toy';
 
@@ -72,13 +72,13 @@ function App() {
     <div className="App">
       <NavBar />
       <Header />
-      
-      <label id="my_bars"><strong> SEARCH: </strong></label>
+
+      <label id="my_bars" htmlFor="s_bar"><strong> SEARCH: </strong></label>
       <br />
       <input className="search-bars" id='s_bar' type="text" value={searchText} onChange={updateSearchText} placeholder="By Name ..." />
 
-      <label id="my_bars"><strong> <span style={{ visibility: 'hidden' }}>AGE:</span> </strong></label>
-      <select className="search-bars" value={selectedAge} onChange={handleAgeChange}>
+      <label id="my_bars" htmlFor="age_select"><strong> <span style={{ visibility: 'hidden' }}>AGE:</span> </strong></label>
+      <select className="search-bars" id="age_select" value={selectedAge} onChange={handleAgeChange}>
         <option value="all">All Ages By Month</option>
         <option value="0-2 months">0-2 months</option>
         <option value="3-4 months">3-4 months</option>
@@ -92,8 +92,8 @@ function App() {
         <option value="22-24 months">22-24 months</option>
       </select>
 
-      <label id="my_bars"><strong> <span style={{ visibility: 'hidden' }}>CATEGORY:</span>  </strong></label>
-      <select className="search-bars" value={selectedCategory} onChange={handleCategoryChange}>
+      <label id="my_bars" htmlFor="category_select"><strong> <span style={{ visibility: 'hidden' }}>CATEGORY:</span>  </strong></label>
+      <select className="search-bars" id="category_select" value={selectedCategory} onChange={handleCategoryChange}>
         <option value="all">All Categories</option>
         <option value="Sensory">Sensory</option>
         <option value="Social + Emotional">Social + Emotional</option>

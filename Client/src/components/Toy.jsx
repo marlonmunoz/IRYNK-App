@@ -1,8 +1,6 @@
 import LikeButton from "./LikeButton";
 
 function Toy({ toy, deleteToy }) {
-
-
     return (
       <div className="container">
         <div className="toy">
