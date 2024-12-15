@@ -47,3 +47,6 @@ if __name__ == '__main__':
 # flask db migrate -m "Initial migration"
 # flask db upgrade
 # export FLASK_APP=app.py
+
+
+pyth
