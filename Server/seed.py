@@ -43,7 +43,7 @@ if __name__ == '__main__':
         print('Seeding complete')
 
 
-flask db init
-flask db migrate -m "Initial migration"
-flask db upgrade
-export FLASK_APP=app.py
+# flask db init
+# flask db migrate -m "Initial migration"
+# flask db upgrade
+# export FLASK_APP=app.py
