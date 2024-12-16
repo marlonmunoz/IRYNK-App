@@ -36,7 +36,7 @@ Below is the set up commands in order to run the fullstack App. Add commands in 
 ## Components
 - App.jsx
 - About.jsx
-- Constact.jsx
+- Contact.jsx
 - ErrorPage.jsx
 - Header.jsx
 - LikeButton.jsx
@@ -67,8 +67,8 @@ Below is the set up commands in order to run the fullstack App. Add commands in 
 - http://localhost:5001/toys
 
 # CRUD Ops
-## POSTAMAN TESTING ROUTES 
-`GET`: http://127.0.0.1:5002/toys/10
-`POST`: http://127.0.0.1:5002/toys
-`PATCH`: http://127.0.0.1:5002/toys/10
-`DELETE`: http://127.0.0.1:5002/toys/11
+## Postman TESTING ROUTES 
+- `GET`: http://127.0.0.1:5002/toys/10
+- `POST`: http://127.0.0.1:5002/toys
+- `PATCH`: http://127.0.0.1:5002/toys/10
+- `DELETE`: http://127.0.0.1:5002/toys/11
