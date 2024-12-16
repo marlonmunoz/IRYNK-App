@@ -13,7 +13,7 @@ function App() {
   const [toys, setToys] = useState([]); 
   
   useEffect(() => {             
-    fetch("http://localhost:5001/toys")  
+    fetch("http://localhost:5002/toys")  
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -51,7 +51,7 @@ function App() {
       },
       body: JSON.stringify(newToy)
     };
-    fetch("http://localhost:5001/toys", configObj)
+    fetch("http://localhost:5002/toys", configObj)
       .then(response => response.json())
       .then(newToyData => {
         setToys([...toys, newToyData]); // Add the new toy to the state

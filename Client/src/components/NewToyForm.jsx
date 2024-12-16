@@ -27,7 +27,7 @@ function NewToyForm() {
         e.preventDefault();
         console.log('Submitting form data:', formData);
     
-        fetch('http://localhost:5001/toys', {
+        fetch('http://localhost:5002/toys', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -53,7 +53,7 @@ function NewToyForm() {
       };
 
     const handlePatch = (id) => {
-        fetch(`http://localhost:5001/toys/${id}`, {
+        fetch(`http://localhost:5002/toys/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'

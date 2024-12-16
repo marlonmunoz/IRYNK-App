@@ -83,12 +83,21 @@
     },
     {
       "id": "10",
-      "name": "Companion Play Kit",
+      "name": "The Explorer Play Kit",
       "image": "https://lovevery.com/_next/image/?url=https%3A%2F%2Fimages.ctfassets.net%2F0sea1vycfyqy%2Fo5bECRn3gwaP5fy2tJEs5%2Fd7449ec7af393d346b7e81a69275433b%2FLovevery-VKS-Playkit-US-TheCompanion-US-ISO-154-April2021_web.20230512202641902__1_.png&w=1920&q=75",
       "age": "22-24 months",
-      "price": 120,
+      "price": "199.99",
       "description": "Your child is transitioning to two. This Play Kit will help your toddler approach situations with confidence, discern differences, practice fine motor skills, and—as always—play to learn.",
       "category": "Cognitive + Emotional + Motor Dev."
+    },
+    {
+      "id": "98c2",
+      "name": "The Babbler Play Kit",
+      "image": "https://lovevery.com/_next/image/?url=https%3A%2F%2Fdownloads.ctfassets.net%2F0sea1vycfyqy%2F2DLSmKGBurRYQaWKBeRF26%2Fa722a5b0c8140187740103e37a531266%2FLovevery-VKS-Playkit-TheHelper-ISO-201-April2021-2.png&w=1920&q=75",
+      "age": "7-8 months",
+      "price": "120",
+      "description": "testing description 2024",
+      "category": "Social + Emotional"
     }
   ]
 }
