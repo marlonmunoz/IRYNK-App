@@ -19,6 +19,8 @@ To activate the Frontend, run the following commands:
     - `npm run dev`
 
 ## SERVER - Python-FLASK (Backend Activation)
+    - `cd Server`
+    - `python app.py`
 
 ## Core Features
 - A navigation bar for all client-side routes
@@ -31,6 +33,7 @@ To activate the Frontend, run the following commands:
 ## Components
 - App.jsx
 - About.jsx
+- Constact.jsx
 - ErrorPage.jsx
 - Header.jsx
 - LikeButton.jsx
@@ -59,3 +62,10 @@ To activate the Frontend, run the following commands:
 
 ## Endpoints
 - http://localhost:5001/toys
+
+# CRUD Ops
+## POSTAMAN TESTING ROUTES 
+`GET`: http://127.0.0.1:5002/toys/10
+`POST`: http://127.0.0.1:5002/toys
+`PATCH`: http://127.0.0.1:5002/toys/10
+`DELETE`: http://127.0.0.1:5002/toys/11
