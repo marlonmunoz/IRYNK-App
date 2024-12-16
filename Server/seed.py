@@ -49,4 +49,5 @@ if __name__ == '__main__':
 # export FLASK_APP=app.py
 
 
-pyth
+# python seed.py 
+# will seed or populate your tables 
