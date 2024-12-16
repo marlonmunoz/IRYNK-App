@@ -19,6 +19,7 @@ To activate the Frontend, run the following commands:
     - `npm run dev`
 
 ## SERVER - Python-FLASK (Backend Activation)
+1. Run the following codes to activate the backend:
     - `cd Server`
     - `python app.py`
 
