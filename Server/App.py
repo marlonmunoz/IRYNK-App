@@ -17,7 +17,6 @@ CORS(app)
 
 @app.route('/toys', methods=['GET', 'POST'])
 def all_toys():
-    # t = get_toys()
     if request.method == 'GET':
         toys = Toy.query.all()
         return [toy.to_dict() for toy in toys], 200
@@ -36,11 +35,11 @@ def all_toys():
             db.session.add(new_toy)
             db.session.commit()
             return jsonify(new_toy.to_dict()), 201  
-        except ValueError as error:
-            return {'error': str(error)}, 400
+        except ValueError as e:
+            return {'error': str(e)}, 400
         
 
-        return new_toy.to_dict(), 201
+    return new_toy.to_dict(), 201
     
 @app.route('/toys/<int:id>', methods=['GET', 'PATCH', 'DELETE'])
 def toy_by_id(id):
