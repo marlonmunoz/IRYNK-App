@@ -5,8 +5,8 @@ function Header() {
         <div>
             <br />
             <br />
-            <h3> <span className="badge badge-success">👶 IRYNK-App  🧸</span></h3>
-            <h4 className="sub-header">The Best Selection Of Toys For Child Development</h4>
+            <h2> <span className="badge badge-success">👶 IRYNK-App  🧸</span></h2>
+            <h4> <span className="badge badge-warning sub-header">The Best Selection Of Toys For Child Development</span></h4>
         </div>
     )
 }
