@@ -1,24 +1,45 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 
-function NewToyForm() {
-     const [formData, setFormData] = useState({
-         name: '',
-         image: '',
-         age: '',
-         price: '',
-         description: '',
-         category_id: '' // Ensure category is part of the form data
-        });
+function NewToyForm({}) {
+
+    const { ageToCategoriesMap } = useOutletContext();
+
+    const [formData, setFormData] = useState({
+        name: '',
+        image: '',
+        age: '',
+        price: '',
+        description: '',
+        category: '', 
+        category_id: null
+       });
 
     const navigate = useNavigate();  // Use the navigate function from the react-router-dom
         
 
+
+    // const updateForm = (e) => {
+    //     const { name, value } = e.target;
+    //     setFormData(prevState => {
+    //         const newFormData = { ...prevState, [name]: value };
+    //         if (name === 'age') {
+    //             newFormData.category = ageToCategoriesMap[value] || '';
+    //         }
+    //         return newFormData;
+    //     });
+    // };
+
     const updateForm = (e) => {
         const { name, value } = e.target;
-        setFormData({
-          ...formData,
-          [name]: value
+        setFormData(prevState => {
+            const newFormData = { ...prevState, [name]: value };
+            if (name === 'age') {
+                const categoryData = ageToCategoriesMap[value] || { category: '', category_id: null };
+                newFormData.category = categoryData.category;
+                newFormData.category_id = categoryData.category_id;
+            }
+            return newFormData;
         });
     };
 
@@ -34,7 +55,7 @@ function NewToyForm() {
           },
           body: JSON.stringify(formData)
         })
-        .then(response => {
+        .then(async response => {
           console.log('Response status:', response.status);
           return response.json().then(data => ({ status: response.status, body: data }));
         })
@@ -110,7 +131,7 @@ function NewToyForm() {
                     {/* AGE */}
                     <br/><br/>
                     <div className="form-group">
-                        <label htmlFor="age"></label>
+                        <label htmlFor="age">Toy By Age</label>
                         <select 
                             className="my-inputs" 
                             type="text" 
@@ -151,7 +172,7 @@ function NewToyForm() {
                     {/* DESCRIPTION */}
                     <br/><br/>
                     <div className="form-group">
-                        <label htmlFor="description">Toy Description: 
+                        <label htmlFor="description">Toy Description: </label>
                         <input 
                             className="my-inputs" 
                             type="text" 
@@ -162,33 +183,22 @@ function NewToyForm() {
                             autoComplete="on" 
                             
                         />
-                            
-                        </label>
                     </div>
 
                     {/*CATEGORY*/}
-                    <div className="form-group"> 
-                        <label htmlFor="category_id"> Category:</label>
-                        <select 
-                            className="my-inputs"
-                            id="category_id" 
-                            name="category_id" 
-                            value= {formData.category_id} 
-                            onChange={updateForm} 
-                        >
-                            <option value="">ADD CATEGORY</option>
-                            <option value="Sensory">Sensory</option>
-                            <option value="Social + Emotional">Social + Emotional</option>
-                            <option value="Sensory Exploration + Motor Skills">Sensory Exploration + Motor Skills</option>
-                            <option value="Cognitive Development + Problem Solving Skills">Cognitive Development + Problem Solving Skills</option>
-                            <option value="Motor Skills: Gross + Fine">Motor Skills: Gross + Fine</option>
-                            <option value="Cognitive Development">Cognitive Development</option>
-                            <option value="Cognitive + Physical">Cognitive + Physical</option>
-                            <option value="Cognitive + Emotion">Cognitive + Emotion</option>
-                            <option value="Sensory + Cognitive">Sensory + Cognitive</option>
-                            <option value="Cognitive + Emotional + Motor Dev.">Cognitive + Emotional + Motor Dev.</option>
-                        </select>
+                    <div className="form-group">
+                        <label htmlFor="category">Category: </label>
+                        <input 
+                            className="my-inputs" 
+                            type="text" 
+                            id="category" 
+                            name="category" 
+                            value={formData.category} 
+                            readOnly 
+                        />
                     </div>
+                    <br />
+                    <br />
                     <button className="add-to-list" type="submit">Add To List</button>
                     {/* <button className="add-to-list" type="submit" onClick={() => handlePatch(1)}>Update Toy</button> Example button to trigger PATCH */}
                 </form>

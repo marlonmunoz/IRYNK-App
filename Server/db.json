@@ -2,12 +2,12 @@
   "toys": [
     {
       "id": "1",
-      "name": "Looker Play Kit",
+      "name": "Looker Play Kittttttttttt",
       "image": "https://lovevery.com/_next/image/?url=https%3A%2F%2Fimages.ctfassets.net%2F0sea1vycfyqy%2FJwOZpORwCxFJnXNMxS9v8%2F293d4cf0880b3c534f79e7924fd48e76%2FLovevery-VKS-Playkit-TheLooker-ISO-305-NOV2021.png&w=1920&q=75",
       "age": "0-2 months",
       "price": 80,
       "description": "Sensitive to light and sound, your newborn is already becoming aware of their new world. This Play Kit helps them build new brain connections with high-contrast images and black and white sensory mittens.",
-      "category": "Sensory"
+      "category_id": "Sensory" 
     },
     {
       "id": "2",
@@ -16,7 +16,7 @@
       "age": "3-4 months",
       "price": 80,
       "description": "Your baby may start to recognize your face—cooing at you, smiling, and delighting everyone they meet. This Play Kit is designed to let your baby explore with their mouth, eyes, and hands as their personality emerges and their social awareness grows.",
-      "category": "Social + Emotional"
+      "category_id": "Social + Emotional" 
     },
     {
       "id": "3",
@@ -25,7 +25,7 @@
       "age": "5-6 months",
       "price": 80,
       "description": "Your baby may be tasting, mouthing, and feeling everything they can get their hands on right now. This Play Kit helps your baby investigate their world around them, while working on getting themself closer to what looks and sounds exciting to them.",
-      "category": "Sensory Exploration + Motor Skills"
+      "category_id": "Sensory Exploration + Motor Skills"
     },
     {
       "id": "4",
@@ -34,7 +34,7 @@
       "age": "7-8 months",
       "price": 80,
       "description": "Your baby is more aware of everything around them and fascinated with details. This Play Kit makes the most of your baby's natural curiosity about how things work with opportunities to explore texture, practice nesting and stacking, and learn about object permanence.",
-      "category": "Cognitive Development + Problem Solving Skills"
+      "category_id": "Cognitive Development + Problem Solving Skills" 
     },
     {
       "id": "5",
@@ -43,7 +43,7 @@
       "age": "9-10 months",
       "price": 80,
       "description": "Your baby loves to see the effect they can have on their environment. This Play Kit is designed to experiment with gravity, practice balance, and begin coordinating both sides of their body.",
-      "category": "Motor Skills: Gross + Fine"
+      "category_id": "Motor Skills: Gross + Fine" 
     },
     {
       "id": "6",
@@ -52,7 +52,7 @@
       "age": "11-12 months",
       "price": 80,
       "description": "Your baby is starting to put it all together and understand concepts at a deeper level. This Play Kit encourages your baby to define and organize information while engaging their budding imagination.",
-      "category": "Cognitive Development"
+      "category_id": "Cognitive Development" 
     },
     {
       "id": "7",
@@ -61,7 +61,7 @@
       "age": "13-15 months",
       "price": 120,
       "description": "Your toddler may be finding their voice and their special place in the world. This Play Kit offers new challenges in balance, object permanence, and spatial awareness, as well as an early introduction to physics.",
-      "category": "Cognitive + Physical"
+      "category_id": "Cognitive + Physical" 
     },
     {
       "id": "8",
@@ -70,7 +70,7 @@
       "age": "16-18 months",
       "price": 120,
       "description": "Your toddler is making so many discoveries about the real world at this stage. This Play Kit lets them experiment with cause and effect, use both hands at once to complete a task, and learn about a wider range of emotions",
-      "category": "Cognitive + Emotional"
+      "category_id": "Cognitive + Emotional" 
     },
     {
       "id": "9",
@@ -79,7 +79,7 @@
       "age": "19-21 months",
       "price": 120,
       "description": "Your toddler probably wants to participate in real life situations, routines, and rituals. This Play Kit helps develop their senses and understanding of what things are and how they work.",
-      "category": "Sensory + Cognitive"
+      "category_id": "Sensory + Cognitive" 
     },
     {
       "id": "10",
@@ -88,7 +88,7 @@
       "age": "22-24 months",
       "price": 120,
       "description": "Your child is transitioning to two. This Play Kit will help your toddler approach situations with confidence, discern differences, practice fine motor skills, and—as always—play to learn.",
-      "category": "Cognitive + Emotional + Motor Dev."
+      "category_id": "Cognitive + Emotional + Motor Dev." 
     }
   ]
 }

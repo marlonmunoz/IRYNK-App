@@ -1,6 +1,16 @@
 import LikeButton from "./LikeButton";
 
-function Toy({ toy, deleteToy }) {
+function Toy({ toy, deleteToy, nameCategories, ageToCategoryMap } ) {
+  const categoryId = ageToCategoryMap[toy.age];
+  const categoryName = categoryId ? nameCategories[categoryId.toString()] : "Unknown Category";
+
+  // console.log("<<==== Toy Component Rendered ====>>");
+  // console.log("toy:", toy);
+  // console.log("ageToCategoryMap:", ageToCategoryMap);
+  // console.log("categoryId:", categoryId);
+  // console.log("nameCategories:", nameCategories);
+  // console.log("categoryName:", categoryName);
+
     return (
       <div className="container">
         <div className="toy">
@@ -10,7 +20,7 @@ function Toy({ toy, deleteToy }) {
               <p id="description">{toy.description}</p>
               <p id="toy-price">$ {toy.price}</p>
               <h3>Ages: {toy.age}</h3>
-              <p id="category_id"> <span>CATEGORY:</span> {toy.category}</p>
+              <p id="category_id"> <span>CATEGORY:</span> {categoryName}</p>
 
               <div className="my-buttons">
                 <button className="delete-button" onClick={deleteToy}>🗑️ Delete Toy</button>

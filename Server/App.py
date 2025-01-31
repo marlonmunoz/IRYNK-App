@@ -19,7 +19,7 @@ CORS(app)
 def all_toys():
     if request.method == 'GET':
         toys = Toy.query.all()
-        return [toy.to_dict() for toy in toys], 200
+        return jsonify([toy.to_dict() for toy in toys]), 200
     elif request.method == 'POST':
         data = request.get_json()
 
@@ -36,7 +36,7 @@ def all_toys():
             db.session.commit()
             return jsonify(new_toy.to_dict()), 201  
         except ValueError as e:
-            return {'error': str(e)}, 400
+            return jsonify({'error': str(e)}), 400
         
 
     return new_toy.to_dict(), 201

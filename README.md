@@ -10,11 +10,11 @@ Below is the set up commands in order to run the fullstack App. Add commands in 
 ## CLIENT - JavaScript-REACT (Frontend Activation)
 
 1. To activate the Frontend, run the following commands:
+    - `nvm use 20.16`
     - `cd Client`
     - `npm run dev`
 
     <!-- - `nvm install`
-    - `nvm use 20.16`
     - `npm run dev` -->
 ## SERVER - Python-FLASK (Backend Activation)
 1. Run the following codes to activate Python environment.
