@@ -9,11 +9,11 @@ function Toy({ toy, deleteToy, nameCategories, ageToCategoryMap } ) {
         <div className="toy">
           <img className="toy-image" src={toy.image} alt={toy.name} />
           <div className="toy-details">
-              <h2>{toy.name}</h2>
+              <h3><span className="badge badge-warning toy-name">{toy.name}</span></h3>
               <p id="description">{toy.description}</p>
               <p id="toy-price">$ {toy.price}</p>
-              <h3>Ages: {toy.age}</h3>
-              <p id="category_id"> <span>CATEGORY:</span> {categoryName}</p>
+              <h6>Ages: {toy.age}</h6>
+              <p id="category_id"> <span>CATEGORY:</span> {categoryName} </p>
 
               <div className="my-buttons">
                 <button className="delete-button" onClick={deleteToy}>🗑️ Delete Toy</button>

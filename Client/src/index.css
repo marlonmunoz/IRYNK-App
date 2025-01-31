@@ -170,10 +170,14 @@ body {
   background-color: rgba(64, 17, 41, 0.5);
   border: 1px solid white;
   border-radius: 7px;
-  padding: 0px 10px 15px;
-  width: 670px; /* Set a fixed width */
+  padding: 0px 15px 30px;
+  width: 650px; /* Set a fixed width */
   height: 470px;  /* Set a fixed height */
 }  
+
+.toy-name {
+  margin: 12px 3px 3px 3px;
+}
 
 .delete-button {
 
