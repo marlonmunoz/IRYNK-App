@@ -75,19 +75,31 @@ def toy_by_id(id):
         return {}, 204
     
 # CONTACT
+@app.route('/contacts', methods=['GET'])
+def get_contacts():
+    contacts = Contact.query.all()
+    return jsonify([contact.to_dict() for contact in contacts])
+
 @app.route('/contact', methods=['POST'])
 def contact():
     data = request.get_json()
     new_contact = Contact(
-        name=data['name'],
-        email=data['email'],
-        message=data['message'],
+        name=data.get('name'),
+        email=data.get('email'), 
+        message=data.get('message'),
     )
     db.session.add(new_contact)
     db.session.commit()
-    return jsonify({'message': 'Contact information saved successfully!'}), 201
-    
-    
+    return jsonify(new_contact.to_dict()), 201
+    # return jsonify({'message': 'Contact information saved successfully!'}), 201
+
+@app.route('/contact/<int:id>', methods=['DELETE'])
+def delete_contact(id):
+    contact = Contact.query.get_or_404(id)
+    db.session.delete(contact)
+    db.session.commit()
+    return '', 204
+
     
 
 if __name__ == '__main__':  

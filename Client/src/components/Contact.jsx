@@ -1,11 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 
 function Contact() {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        message: ''
-    });
+    const { message, setMessage, formData, setFormData, contacts, setContacts } = useOutletContext();
+
+    useEffect(() => {
+        const fetchContacts = async () => {
+            try {
+                const response = await fetch('http://localhost:5002/contacts');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                setContacts(data);
+            } catch (error) {
+                console.error('Error fetching contacts:', error);
+            }
+        };
+        fetchContacts();
+    }, [setContacts]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -23,13 +36,33 @@ function Contact() {
                 body: JSON.stringify(formData)
             });
             if (response.ok) {
-                alert('Message sent successfully!');
+                const newContact = await response.json();
+                setContacts([...contacts, newContact])
+                setMessage('Message sent successfully!');
             } else {
-                alert('Failed to send message.');
+                setMessage('Failed to send message.');
             }
         } catch (error) {
             console.error('Error:', error);
-            alert('Failed to send message.');
+            setMessage('Failed to send message.');
+        }
+    };
+
+    const handleDelete = async (id) => {
+        try {
+            const response = await fetch(`http://localhost:5002/contact/${id}`, {
+                method: 'DELETE'
+            });
+            if (response.ok) {
+                setContacts(contacts.filter(contact => contact.id !== id));
+                setMessage('Contact deleted successfully!')
+                console.log('Contact deleted:', id); // Debug log
+            } else {
+                setMessage('Falied to delete contact,')
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            setMessage('Failed to delete contact.')
         }
     };
 
@@ -60,6 +93,20 @@ function Contact() {
                         <button type="submit" className="btn btn-primary">Send</button>
                     </form>
                 </div>
+            </div>
+            <div className="mt-5">
+                <h5>  Your Contact List</h5>
+                <ul className="list-group">
+                    {contacts.map(contact => (
+                        <li key={contact.id} className="list-group-item d-flex justify-content-between align-items-center bg-dark">
+                            <div>
+                                <strong>{contact.name}</strong> - New Contact Added
+                                {/* <p>{contact.message}</p> */}
+                            </div>
+                            <button onClick={() => handleDelete(contact.id)} className="btn btn-danger">Delete</button>
+                        </li>
+                    ))}
+                </ul>
             </div>
         </div>
     );

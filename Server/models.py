@@ -22,6 +22,15 @@ class Contact(db.Model):
     message = db.Column(db.Text, nullable=False)
     date = db.Column(db.DateTime, default=datetime.utcnow)
     
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'email': self.email,
+            'message': self.message,
+            'date': self.date,
+        }
+    
     def __repr__(self):
         return f'<Contact: {self.name}>'
 

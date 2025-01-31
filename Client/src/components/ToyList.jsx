@@ -7,6 +7,8 @@ function ToyList({}) {
     const toyComponents = toys ? toys.map(toy => {
         return <Toy key={toy.id} toy={toy} deleteToy={() => deleteToy(toy.id)} nameCategories={nameCategories} ageToCategoryMap={ageToCategoryMap} />
     }) : <p>Loading...</p>;
+
+    
     
 
     return (
@@ -33,6 +35,7 @@ function ToyList({}) {
             </select>
             <div className="toy-list">
               {toyComponents}
+                
             </div>
         </div>
         

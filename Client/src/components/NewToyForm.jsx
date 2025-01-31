@@ -102,7 +102,7 @@ function NewToyForm({}) {
                     </div>
 
                     {/* IMAGE */}
-                    <br/><br/>
+                    {/* <br/><br/> */}
                     <div className="form-group">
                         <label htmlFor="image">Toy URL Image: </label>
                         <input 
@@ -117,7 +117,7 @@ function NewToyForm({}) {
                     </div>
 
                     {/* AGE */}
-                    <br/><br/>
+                    {/* <br/><br/> */}
                     <div className="form-group">
                         <label htmlFor="age">Toy By Age</label>
                         <select 
@@ -143,7 +143,7 @@ function NewToyForm({}) {
                     </div>
 
                     {/* PRICE */} 
-                    <br/><br/>
+                    {/* <br/><br/> */}
                     <div className="form-group">
                         <label htmlFor="price">Toy Price: </label>
                         <input 
@@ -158,7 +158,7 @@ function NewToyForm({}) {
                     </div>
 
                     {/* DESCRIPTION */}
-                    <br/><br/>
+                    {/* <br/><br/> */}
                     <div className="form-group">
                         <label htmlFor="description">Toy Description: </label>
                         <input 
@@ -185,7 +185,6 @@ function NewToyForm({}) {
                             readOnly 
                         />
                     </div>
-                    <br />
                     <br />
                     <button className="add-to-list" type="submit">Add To List</button>
                     {/* <button className="add-to-list" type="submit" onClick={() => handlePatch(1)}>Update Toy</button> Example button to trigger PATCH */}

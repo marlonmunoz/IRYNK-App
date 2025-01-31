@@ -83,7 +83,7 @@ function App() {
   };
   
   const nameCategories = {
-    "all": "All Categories",
+    // "all": "All Categories",
     1:  "Sensory + Cognitive",
     2: "Cognitive + Emotional",
     3: "Sensory Exploration + Motor Skills",
@@ -134,7 +134,10 @@ function App() {
   });
 
   // CONTACT 
-  
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [contacts, setContacts] = useState([]);
+  const [message, setMessage] = useState('');
+
 
   
   return (
@@ -155,7 +158,14 @@ function App() {
           ageCategories: ageCategories,
           nameCategories: nameCategories,
           ageToCategoryMap: ageToCategoryMap,
-          ageToCategoriesMap: ageToCategoriesMap
+          ageToCategoriesMap: ageToCategoriesMap,
+          filteredToys: filteredToys,
+          message: message,
+          setMessage: setMessage,
+          formData: formData,
+          setFormData: setFormData,
+          contacts: contacts,
+          setContacts: setContacts
         }
       } 
       /> 
