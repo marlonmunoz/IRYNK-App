@@ -15,14 +15,14 @@ function About () {
                         {/* </em> */}
                     </p>
                     <h5 className="card-title">Links</h5>
-<div className="row">
-    <div className="col-md-6 mb-2">
-        <a href="https://lovevery.com/" className="btn btn-primary w-100" target="_blank" rel="noopener noreferrer">lovevery.com</a>
-    </div>
-    <div className="col-md-6 mb-2">
-        <a href="https://www.manhattantoy.com/" className="btn btn-primary w-100" target="_blank" rel="noopener noreferrer">manhattantoy.com</a>
-    </div>
-</div>
+                    <div className="row">
+                    <div className="col-md-6 mb-2">
+                        <a href="https://lovevery.com/" className="btn btn-primary w-100" target="_blank" rel="noopener noreferrer">lovevery.com</a>
+                    </div>
+                    <div className="col-md-6 mb-2">
+                        <a href="https://www.manhattantoy.com/" className="btn btn-primary w-100" target="_blank" rel="noopener noreferrer">manhattantoy.com</a>
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>
