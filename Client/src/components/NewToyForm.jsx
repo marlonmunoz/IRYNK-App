@@ -18,18 +18,6 @@ function NewToyForm({}) {
     const navigate = useNavigate();  // Use the navigate function from the react-router-dom
         
 
-
-    // const updateForm = (e) => {
-    //     const { name, value } = e.target;
-    //     setFormData(prevState => {
-    //         const newFormData = { ...prevState, [name]: value };
-    //         if (name === 'age') {
-    //             newFormData.category = ageToCategoriesMap[value] || '';
-    //         }
-    //         return newFormData;
-    //     });
-    // };
-
     const updateForm = (e) => {
         const { name, value } = e.target;
         setFormData(prevState => {

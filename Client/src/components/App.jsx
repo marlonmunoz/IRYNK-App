@@ -4,7 +4,6 @@ import { Outlet } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import NavBar from './NavBar';
 import Header from './Header';
-// import ToyList from './ToyList';
 
 function App() {  
   const [searchText, setSearchText] = useState("");  
@@ -25,11 +24,6 @@ function App() {
     })
     .catch(error => console.error('Error fetching toys:', error)); 
   }, []);
-  
-  
-  // console.log('Filtered Toys',filteredToys);
-  // console.log('Filtered Toys Category IDs', filteredToys.map(toy => toy.category_id));
-  
   
   function updateSearchText(event) {
     setSearchText(event.target.value);
@@ -62,7 +56,6 @@ function App() {
     .then(response => response.json())
     .then(newToyData => {
       setToys(toys => toys.map(toy => toy.temp ? newToyData : toy)); // Replace the temp toy with the new toy data
-      // setToys([...toys, newToyData]); // Add the new toy to the state
     })
     .catch(error => console.log('Error', error));
   }
@@ -140,7 +133,9 @@ function App() {
     return toy.name.toUpperCase().includes(searchText.toUpperCase());
   });
 
-  // console.log('MY TOYS',filteredToys);
+  // CONTACT 
+  
+
   
   return (
     <div className="App">
@@ -157,7 +152,6 @@ function App() {
           handleAgeChange: handleAgeChange, 
           handleCategoryChange: handleCategoryChange,
           selectedCategory: selectedCategory,
-          // categoryMap: categoryMap
           ageCategories: ageCategories,
           nameCategories: nameCategories,
           ageToCategoryMap: ageToCategoryMap,

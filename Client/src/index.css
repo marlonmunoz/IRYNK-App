@@ -367,3 +367,8 @@ label {
 #e-card {
   color: white;
 }
+
+
+.transparent-card {
+  background-color: rgba(255, 255, 255, 0.3); /* Adjust the alpha value for transparency */
+}
