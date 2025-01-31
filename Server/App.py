@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate 
 from flask_cors import CORS
-from models import db,  Toy, Category
+from models import db,  Toy, Category, Contact
 import json
 
 app = Flask(__name__)
@@ -73,6 +73,22 @@ def toy_by_id(id):
         db.session.commit()
 
         return {}, 204
+    
+# CONTACT
+@app.route('/contact', methods=['POST'])
+def contact():
+    data = request.get_json()
+    new_contact = Contact(
+        name=data['name'],
+        email=data['email'],
+        message=data['message'],
+    )
+    db.session.add(new_contact)
+    db.session.commit()
+    return jsonify({'message': 'Contact information saved successfully!'}), 201
+    
+    
+    
 
 if __name__ == '__main__':  
     app.run(debug=True, port=5002)

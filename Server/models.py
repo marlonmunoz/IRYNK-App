@@ -2,6 +2,7 @@ from sqlalchemy_serializer import SerializerMixin
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
 from sqlalchemy.orm import column_property
+from datetime import datetime
 
 convention = {
     "ix": "ix_%(column_0_label)s",
@@ -14,6 +15,15 @@ convention = {
 metadata = MetaData()
 db = SQLAlchemy(metadata=metadata)
 
+class Contact(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), nullable=False)
+    message = db.Column(db.Text, nullable=False)
+    date = db.Column(db.DateTime, default=datetime.utcnow)
+    
+    def __repr__(self):
+        return f'<Contact: {self.name}>'
 
 class Category(db.Model, SerializerMixin):
     __tablename__ = 'categories'
@@ -46,3 +56,8 @@ class Toy(db.Model, SerializerMixin):
     def __repr__(self):
         return f'<Toy: {self.name}, {self.image}, {self.age}, {self.price}, {self.description}>'
     
+
+# To create table
+# flask db init
+# flask db migrate -m "Add Contact model"
+# flask db upgrade

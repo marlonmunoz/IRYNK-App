@@ -28,25 +28,44 @@ select {
 /* ---------------------------------------------------------------------------------- */
 /* ------ HOME & NAV-TAB ------------------------------------------------------------*/
 /* ---------------------------------------------------------------------------------- */
-.flex_container {
+/* .flex_container {
   display: flex;
   justify-content:space-around
-}
-
-
-.my-tabs {
-  display: inline-block;
-  margin: 10px;
 }
 
 .ul-nav {
   padding: 15px;
   margin-left: auto;
   margin-right: auto; 
- 
 }
 
- .my-tabs > a {
+.my-tabs {
+  display: inline-block;
+  margin: 10px;
+} */
+
+.flex_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ul-nav {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.my-tabs {
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+
+.my-tabs > a {
   color: white;
   text-decoration: none;
   font-size: 20px;

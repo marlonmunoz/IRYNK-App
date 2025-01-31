@@ -4,13 +4,6 @@ function Toy({ toy, deleteToy, nameCategories, ageToCategoryMap } ) {
   const categoryId = ageToCategoryMap[toy.age];
   const categoryName = categoryId ? nameCategories[categoryId.toString()] : "Unknown Category";
 
-  // console.log("<<==== Toy Component Rendered ====>>");
-  // console.log("toy:", toy);
-  // console.log("ageToCategoryMap:", ageToCategoryMap);
-  // console.log("categoryId:", categoryId);
-  // console.log("nameCategories:", nameCategories);
-  // console.log("categoryName:", categoryName);
-
     return (
       <div className="container">
         <div className="toy">
