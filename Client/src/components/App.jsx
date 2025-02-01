@@ -146,7 +146,7 @@ function App() {
       <Header />
       <Outlet context={
         {
-          toys: filteredToys, 
+          // toys: filteredToys, 
           searchText: searchText, 
           selectedAge: selectedAge,
           addNewToy: addNewToy, 
@@ -166,7 +166,7 @@ function App() {
           setFormData: setFormData,
           contacts: contacts,
           setContacts: setContacts,
-          toys
+          toys:toys
         }
       } 
       /> 

@@ -4,7 +4,7 @@ function About () {
         <div className="container mt-5 mission-container">
             <div className="card">
                 <div className="card-body text-dark">
-                    <h5 className="card-title">Mission</h5>
+                    <h3 className="card-title h3Form">Mission</h3>
                     <p className="card-text border rounded">
                         {/* <em> */}
                         The mission, is to help new or first time parents choose a toy according to the baby's age
