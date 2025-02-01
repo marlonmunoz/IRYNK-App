@@ -4,21 +4,29 @@ import { useState, useEffect } from "react";
 
 function ToyList({}) {
     const { toys, deleteToy, searchText, updateSearchText, handleAgeChange, selectedAge, handleCategoryChange, ageCategories, nameCategories, ageToCategoryMap, selectedCategory, setSelectedCategory } = useOutletContext();
-    const [filteringToys, setFilteringToys] = useState(toys)
+    const [filteringToys, setFilteringToys] = useState([])
 
     useEffect(() => {
-      if (selectedCategory === 'all') {
-        setFilteringToys(toys);
-      } else {
-        setFilteringToys(toys.filter(toy => toy.category === selectedCategory))
-      }
-    } , [selectedCategory, toys]);
-    
-    
-    const toyComponents = toys ? toys.map(toy => {
-        return <Toy key={toy.id} toy={toy} deleteToy={() => deleteToy(toy.id)} nameCategories={nameCategories} ageToCategoryMap={ageToCategoryMap} />
-    }) : <p>Loading...</p>;
+      console.log('Selected Category:', selectedCategory);
+      console.log('Toys:', toys);
 
+      if (selectedCategory === 'all') {
+          setFilteringToys(toys);
+      } else {
+          const filtered = toys.filter(toy => toy.category_id === parseInt(selectedCategory));
+          console.log('Filtered Toys:', filtered);
+          setFilteringToys(filtered);
+      }
+    }, [selectedCategory, toys]);
+    
+    
+    // const toyComponents = toys ? toys.map(toy => {
+    //     return <Toy key={toy.id} toy={toy} deleteToy={() => deleteToy(toy.id)} nameCategories={nameCategories} ageToCategoryMap={ageToCategoryMap} />
+    // }) : <p>Loading...</p>;
+
+    const toyComponents = filteringToys.length > 0 ? filteringToys.map(toy => {
+      return <Toy key={toy.id} toy={toy} deleteToy={() => deleteToy(toy.id)} nameCategories={nameCategories} ageToCategoryMap={ageToCategoryMap} />
+    }) : <p>No toys available for the selected category.</p>;
     
     
 

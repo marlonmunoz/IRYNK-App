@@ -165,7 +165,8 @@ function App() {
           formData: formData,
           setFormData: setFormData,
           contacts: contacts,
-          setContacts: setContacts
+          setContacts: setContacts,
+          toys
         }
       } 
       /> 
