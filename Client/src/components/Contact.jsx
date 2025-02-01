@@ -2,7 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 
 function Contact() {
-    const { message, setMessage, formData, setFormData, contacts, setContacts } = useOutletContext();
+    const { message, setMessage, contacts, setContacts } = useOutletContext();
+    const initialFormState = {
+        name: '',
+        email: '',
+        message: ''
+    }
+    const [formData, setFormData] = useState(initialFormState);
+    const [charCount, setCharCount] = useState(0)
 
     useEffect(() => {
         const fetchContacts = async () => {
@@ -22,7 +29,11 @@ function Contact() {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value})  
+        setFormData({ ...formData, [name]: value})
+        
+        if (name === 'message') {
+            setCharCount(value.length);
+        }
     };
     
     const handleSubmit = async (e) => {
@@ -39,6 +50,8 @@ function Contact() {
                 const newContact = await response.json();
                 setContacts([...contacts, newContact])
                 setMessage('Message sent successfully!');
+                setFormData(initialFormState)
+                setCharCount(0);
             } else {
                 setMessage('Failed to send message.');
             }
@@ -71,7 +84,7 @@ function Contact() {
 
     return (
         <div className="container mt-5 ">
-            <div className="card transparent-card">
+            <div className="card transparent-card border">
                 <div className="card-body">
                     <h5 className="card-title">Contact Me</h5 >
                     <form onSubmit={handleSubmit}>
@@ -85,9 +98,12 @@ function Contact() {
                             <input type="email" className="form-control w-100" id="email" name="email" value={formData.email} onChange={handleChange} required autoComplete="email" /> 
                         </div>  
 
-                        <div className="form-group">
+                        <div className="form-group" style={{ position: 'relative' }}>
                             <label htmlFor="message">Message:</label>
                             <textarea className="form-control" id="message" name="message" value={formData.message} onChange={handleChange} required />
+                            <div style={{ position: 'absolute', bottom: '5px', right: '10px', fontSize: '12px', color: '#999' }}>
+                                {charCount} characters
+                            </div>
                         </div>
 
                         <button type="submit" className="btn btn-primary">Send</button>
@@ -95,12 +111,12 @@ function Contact() {
                 </div>
             </div>
             <div className="mt-5">
-                <h5>  Your Contact List</h5>
+                <h5 className="border rounded bg-dark p-2"> NEW MESSAGES  <span className="badge badge-danger">{contacts.length}</span> </h5>
                 <ul className="list-group">
                     {contacts.map(contact => (
-                        <li key={contact.id} className="list-group-item d-flex justify-content-between align-items-center bg-dark">
+                        <li key={contact.id} className="list-group-item d-flex justify-content-between align-items-center bg-dark border">
                             <div>
-                                <strong>{contact.name}</strong> - New Contact Added
+                                <strong style={{ color: 'lightblue'}}>{contact.name}</strong> - <span> Has Sent You A Message On </span> {contact.date}
                                 {/* <p>{contact.message}</p> */}
                             </div>
                             <button onClick={() => handleDelete(contact.id)} className="btn btn-danger">Delete</button>
