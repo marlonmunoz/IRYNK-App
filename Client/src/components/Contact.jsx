@@ -102,7 +102,7 @@ function Contact() {
                             <label htmlFor="message">Message:</label>
                             <textarea className="form-control" id="message" name="message" value={formData.message} onChange={handleChange} required />
                             <div style={{ position: 'absolute', bottom: '5px', right: '10px', fontSize: '12px', color: '#999' }}>
-                                {charCount} characters
+                                {charCount} chars
                             </div>
                         </div>
 
