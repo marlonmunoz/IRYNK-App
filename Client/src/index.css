@@ -10,7 +10,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   background-position: center;
-  background-size: cover;
+  /* background-size:cover; */
 }
 
 /* body {

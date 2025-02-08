@@ -1,7 +1,7 @@
 # IRYNK-App 🍼
 ## Toys For Child Development
 
-![Alt text](./Client/public/images/IRYNK-App.png)
+![Alt text](./Client/public/images/IRYNK-App_002.png)
 
 As a first time, our newborn angel did not include instructions when they made their way into the world, and we have a duty to guide our little angels and help them develop their skills as they grow. This app was created to help parents witht a head start and help them choose the right toy according to age and /or category. As a first time parent of a beautiful baby girl, I think it is necessary to know what toys will help them have fun and most importantly, develop their brain as they aquire new skills..
 # SETUP
@@ -72,3 +72,16 @@ Below is the set up commands in order to run the fullstack App. Add commands in 
 - `POST`: http://127.0.0.1:5002/toys
 - `PATCH`: http://127.0.0.1:5002/toys/10
 - `DELETE`: http://127.0.0.1:5002/toys/11
+
+# Technologies Implemented
+<div style="text-align: center;">
+    <div style='display: inline-block;'>
+        <img src="./Client/src/tech_pngs/JS_logo.png" alt="Alt text"    width="70" height="70">
+        <img src="./Client/src/tech_pngs/React.webp" alt="Alt text"     width="70" height="70">
+        <img src="./Client/src/tech_pngs/python_logo.png" alt="Alt text"    width="70"    height="70">
+        <img src="./Client/src/tech_pngs/flask_logo.png" alt="Alt text"   width="80" height="70">
+        <img src="./Client/src/tech_pngs/sqlite.webp" alt="Alt text"     width="70" height="70">
+        <img src="./Client/src/tech_pngs/Bootstrap_logo.png" alt="Alt text"     width="70" height="70">
+        <img src="./Client/src/tech_pngs/html_css_logo.png" alt="Alt text"  width="80"  height="70">
+    </div>
+</div>
