@@ -10,7 +10,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   background-position: center;
-  /* background-size: cover; */
+  background-size: cover;
 }
 
 /* body {
@@ -343,7 +343,8 @@ label {
 
 .mission-container {
   background-color: rgba(54, 34, 74, 0.5);
-  border-radius: 7px;
+  border-radius: 9px;
+  width: 600px;
 }
 
 /* ---------------------------------------------------------------------------------- */
