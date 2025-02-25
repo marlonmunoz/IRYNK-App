@@ -25,9 +25,7 @@ function App() {
     .catch(error => console.error('Error fetching toys:', error)); 
   }, []);
   
-  function updateSearchText(event) {
-    setSearchText(event.target.value);
-  }
+  
   function deleteToy(toyId) {
     fetch(`http://localhost:5002/toys/${toyId}`, {method: 'DELETE'})
     .then(response => {
@@ -66,6 +64,10 @@ function App() {
   
   function handleCategoryChange(event) {
     setSelectedCategory(event.target.value)
+  }
+  
+  function updateSearchText(event) {
+    setSearchText(event.target.value);
   }
   
   const ageCategories = {
