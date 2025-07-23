@@ -43,6 +43,12 @@ class Category(db.Model, SerializerMixin):
 
     serialize_rules = ('-toys',)
 
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name
+        }
+
     def __repr__(self):
         return f'<Category: {self.name}>'
     
@@ -52,8 +58,8 @@ class Toy(db.Model, SerializerMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False)
-    image = column_property(db.Column(db.String(200), nullable=False))
-    age = db.Column(db.Integer, nullable=True)
+    image = column_property(db.Column(db.String(500), nullable=False))
+    age = db.Column(db.String(50), nullable=True)
     price = db.Column(db.Float, nullable=True)
     description = db.Column(db.String, nullable=True)
     category_id = db.Column(db.Integer, db.ForeignKey('categories.id'), nullable=False)

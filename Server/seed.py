@@ -15,7 +15,7 @@ def seed_toys():
                 age = toy['age'],
                 price = toy['price'],
                 description = toy['description'],
-                category_id = Category.query.filter_by(name=toy['category']).first().id
+                category_id = Category.query.filter_by(name=toy['category_id']).first().id
 
             )
             db.session.add(new_toy)
@@ -25,7 +25,7 @@ def seed_toys():
 def seed_categories():
     with open('db.json') as file:
         toys = json.loads(file.read())['toys']  
-        categories = set([toy['category'] for toy in toys])
+        categories = set([toy['category_id'] for toy in toys])
         for category in categories:
             print(f"Seeding category: {category}")
             new_category = Category (

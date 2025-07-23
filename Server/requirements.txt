@@ -1,0 +1,7 @@
+Flask==2.3.3
+Flask-SQLAlchemy==3.0.5
+Flask-Migrate==4.0.5
+Flask-CORS==4.0.0
+SQLAlchemy==2.0.21
+sqlalchemy-serializer==1.4.1
+psycopg2-binary==2.9.7

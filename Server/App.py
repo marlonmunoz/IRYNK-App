@@ -3,11 +3,15 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate 
 from flask_cors import CORS
 from models import db,  Toy, Category, Contact
+from config import config
 import json
+import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# Load configuration
+config_name = os.getenv('FLASK_ENV', 'development')
+app.config.from_object(config[config_name])
 
 db.init_app(app)
 migrate = Migrate(app, db)
@@ -73,6 +77,64 @@ def toy_by_id(id):
         db.session.commit()
 
         return {}, 204
+
+# CATEGORIES
+@app.route('/categories', methods=['GET'])
+def get_categories():
+    categories = Category.query.all()
+    return jsonify([category.to_dict() for category in categories]), 200
+
+@app.route('/categories/<int:id>/toys', methods=['GET'])
+def get_toys_by_category_id(id):
+    category = Category.query.get_or_404(id)
+    toys = Toy.query.filter_by(category_id=id).all()
+    return jsonify({
+        'category': category.to_dict(),
+        'toys': [toy.to_dict() for toy in toys]
+    }), 200
+
+@app.route('/toys/search', methods=['GET'])
+def search_toys():
+    # Get query parameters
+    category_name = request.args.get('category')
+    category_id = request.args.get('category_id')
+    name = request.args.get('name')
+    age = request.args.get('age')
+    min_price = request.args.get('min_price')
+    max_price = request.args.get('max_price')
+    
+    # Start with base query
+    query = Toy.query
+    
+    # Filter by category name
+    if category_name:
+        category = Category.query.filter_by(name=category_name).first()
+        if category:
+            query = query.filter_by(category_id=category.id)
+        else:
+            return jsonify([]), 200  # Return empty list if category not found
+    
+    # Filter by category ID
+    if category_id:
+        query = query.filter_by(category_id=int(category_id))
+    
+    # Filter by toy name (partial match)
+    if name:
+        query = query.filter(Toy.name.ilike(f'%{name}%'))
+    
+    # Filter by age
+    if age:
+        query = query.filter(Toy.age.ilike(f'%{age}%'))
+    
+    # Filter by price range
+    if min_price:
+        query = query.filter(Toy.price >= float(min_price))
+    if max_price:
+        query = query.filter(Toy.price <= float(max_price))
+    
+    # Execute query
+    toys = query.all()
+    return jsonify([toy.to_dict() for toy in toys]), 200
     
 # CONTACT
 @app.route('/contacts', methods=['GET'])

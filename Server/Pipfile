@@ -11,6 +11,7 @@ flask-serializer = "*"
 flask = "*"
 sqlalchemy = "*"
 flask-cors = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
