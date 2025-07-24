@@ -11,9 +11,8 @@ class Config:
     POSTGRES_PORT = os.environ.get('POSTGRES_PORT') or '5432'
     POSTGRES_DB = os.environ.get('POSTGRES_DB') or 'toy_store_db'
     
-    # SQLAlchemy configuration
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
-        f'postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}'
+    # SQLAlchemy configuration - PostgreSQL ONLY
+    SQLALCHEMY_DATABASE_URI = f'postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 class DevelopmentConfig(Config):

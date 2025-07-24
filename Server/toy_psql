@@ -1,0 +1,3 @@
+#!/bin/bash
+# Simple psql connection script for toy_store_db
+PGPASSWORD=toy_password psql -h localhost -U toy_user toy_store_db "$@"
